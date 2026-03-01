@@ -22,8 +22,27 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Omkar Bhandia // Product Engineer",
-  description: "Senior Web Architect specializing in React, Next.js, and modern bleeding-edge technologies.",
+  metadataBase: new URL('https://omkarbhandia.vercel.app'),
+  title: "Omkar Bhandia | Full Stack Developer",
+  description: "Software Engineer based in Ichalkaranji. Focused on building high-performance web applications with MERN stack and Next.js.",
+  openGraph: {
+    title: "Omkar Bhandia | Full Stack Developer",
+    description: "Software Engineer based in Ichalkaranji. Focused on building high-performance web applications with MERN stack and Next.js.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Omkar Bhandia Portfolio Preview"
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Omkar Bhandia | Full Stack Developer",
+    description: "Software Engineer based in Ichalkaranji. Focused on building high-performance web applications with MERN stack and Next.js.",
+    images: ["/og-image.png"],
+  }
 };
 
 export const viewport: Viewport = {

@@ -8,7 +8,7 @@ export default function TabIdentity() {
             if (document.hidden) {
                 document.title = "System Standby...";
             } else {
-                document.title = "Omkar Bhandia // Product Engineer";
+                document.title = "Omkar // Portfolio";
             }
         };
 
