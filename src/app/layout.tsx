@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Omkar Bhandia Portfolio Preview"
+        alt: "Omkar Bhandia // Industrial Studio Portfolio Preview"
       }
     ],
   },
@@ -41,7 +41,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Omkar Bhandia | Full Stack Developer",
     description: "Software Engineer based in Ichalkaranji. Focused on building high-performance web applications with MERN stack and Next.js.",
-    images: ["/og-image.png"],
+    images: [
+      {
+        url: "/og-image.png",
+        alt: "Omkar Bhandia // Industrial Studio Portfolio Preview"
+      }
+    ],
   }
 };
 
