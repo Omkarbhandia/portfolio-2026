@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+    <!-- Rich Black Background -->
+    <rect width="512" height="512" fill="#050505" rx="100" ry="100"/>
+    
+    <!-- Thin white border to signify glass/industrial look -->
+    <rect x="40" y="40" width="432" height="432" fill="none" stroke="#FFFFFF" stroke-width="8" rx="80" ry="80"/>
+    
+    <!-- Stylized 'O' for Omkar -->
+    <circle cx="256" cy="256" r="120" fill="none" stroke="#FFFFFF" stroke-width="48" />
+</svg>
