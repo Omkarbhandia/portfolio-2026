@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth cursor-default">
       <body
-        className={`${inter.variable} ${interTight.variable} ${jetBrainsMono.variable} antialiased overflow-x-hidden bg-obsidian`}
+        className={`${inter.variable} ${interTight.variable} ${jetBrainsMono.variable} antialiased overflow-x-hidden bg-[#030303] text-white`}
         style={{ isolation: "isolate" }}
       >
         <TabIdentity />

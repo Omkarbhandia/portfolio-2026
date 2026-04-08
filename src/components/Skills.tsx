@@ -88,7 +88,7 @@ export default function About() {
                     <div className="flex flex-col gap-8">
                         {digitalSkills.map((block, idx) => (
                             <div key={idx} className="flex flex-col gap-4">
-                                <div className="flex items-center gap-3 text-white/40 border-b border-white/10 pb-2">
+                                <div className="flex items-center gap-3 text-white/40 border-b border-white/5 pb-2">
                                     {block.icon}
                                     <h3 className="font-mono text-sm tracking-widest font-bold uppercase">{block.category}</h3>
                                 </div>
@@ -132,7 +132,7 @@ export default function About() {
                 className="w-full h-full flex items-center justify-start p-8 md:p-16 lg:p-24 relative"
             >
                 {/* Optional Glass panel to ensure text readability over bright city lights, kept subtle */}
-                <div className="absolute inset-4 md:inset-8 lg:inset-12 bg-obsidian/30 backdrop-blur-[10px] rounded-3xl border border-white/10 z-0 pointer-events-none" />
+                <div className="absolute inset-4 md:inset-8 lg:inset-12 bg-obsidian/30 backdrop-blur-[10px] rounded-3xl border border-white/5 z-0 pointer-events-none" />
 
                 <div className="w-full max-w-xl text-left relative z-10 flex flex-col gap-12 p-6">
                     {/* Header */}
@@ -151,7 +151,7 @@ export default function About() {
                         {analogTraits.map((trait, idx) => (
                             <MagneticWrapper key={idx} strength={0.1}>
                                 <div className="group flex items-start gap-6 opacity-80 hover:opacity-100 transition-opacity cursor-default">
-                                    <div className="mt-1 p-3 rounded-xl bg-white/5 border border-white/10 text-white group-hover:bg-white group-hover:text-obsidian transition-colors shadow-lg">
+                                    <div className="mt-1 p-3 rounded-xl bg-white/5 border border-white/5 text-white group-hover:bg-white group-hover:text-obsidian transition-colors shadow-lg">
                                         {trait.icon}
                                     </div>
                                     <div className="flex flex-col gap-2">

@@ -63,28 +63,13 @@ h6 {
   background: #555555;
 }
 
-/* Global Film Grain Overlay (Performance Optimized) */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==");
-  background-repeat: repeat;
-  background-size: 100px 100px;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
-  /* Hardware Acceleration to prevent scrolling repaints */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
+
 
 /* Safari-specific Glass Utility */
 @layer utilities {
   .safari-glass {
-    backdrop-filter: blur(8px) saturate(150%);
-    -webkit-backdrop-filter: blur(8px) saturate(150%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
     will-change: transform, opacity;
   }
 }

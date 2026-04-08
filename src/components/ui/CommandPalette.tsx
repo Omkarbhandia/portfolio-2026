@@ -64,7 +64,7 @@ export default function CommandPalette({ setActiveSection }: CommandPaletteProps
                         <MagneticWrapper strength={0.2}>
                             <button
                                 onClick={() => setIsOpen(true)}
-                                className="command-palette-trigger group flex items-center justify-between w-[320px] sm:w-[500px] px-6 py-5 rounded-3xl safari-glass border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_-15px_rgba(255,255,255,0.2)]"
+                                className="command-palette-trigger group flex items-center justify-between w-[320px] sm:w-[500px] px-6 py-5 rounded-3xl safari-glass border border-white/5 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_-15px_rgba(255,255,255,0.2)]"
                             >
                                 <div className="flex items-center gap-4 text-white/50 group-hover:text-white/90 transition-colors">
                                     <Search size={22} />
@@ -101,7 +101,7 @@ export default function CommandPalette({ setActiveSection }: CommandPaletteProps
                             exit={{ scale: 0.95, y: -20, opacity: 0 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
                             style={{ willChange: "transform" }}
-                            className="w-full max-w-2xl bg-white/5 safari-glass border border-white/10 rounded-3xl shadow-2xl overflow-hidden glass"
+                            className="w-full max-w-2xl bg-white/5 safari-glass border border-white/5 rounded-3xl shadow-2xl overflow-hidden glass"
                         >
                             <div className="flex items-center px-6 py-5 border-b border-white/5 relative">
                                 <Search className="text-white/50 mr-4" size={24} />

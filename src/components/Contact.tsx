@@ -147,7 +147,7 @@ export default function Contact() {
                                             type="text"
                                             id="name"
                                             {...register("name")}
-                                            className={`block w-full pb-3 text-lg bg-transparent border-0 border-b-2 appearance-none text-white focus:outline-none focus:ring-0 peer transition-colors duration-300 ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-white'}`}
+                                            className={`block w-full pb-3 text-lg bg-transparent border-0 border-b-2 appearance-none text-white focus:outline-none focus:ring-0 peer transition-colors duration-300 ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-white/5 focus:border-white'}`}
                                             placeholder=" "
                                         />
                                         <label
@@ -178,7 +178,7 @@ export default function Contact() {
                                             type="email"
                                             id="email"
                                             {...register("email")}
-                                            className={`block w-full pb-3 text-lg bg-transparent border-0 border-b-2 appearance-none text-white focus:outline-none focus:ring-0 peer transition-colors duration-300 ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-white'}`}
+                                            className={`block w-full pb-3 text-lg bg-transparent border-0 border-b-2 appearance-none text-white focus:outline-none focus:ring-0 peer transition-colors duration-300 ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-white/5 focus:border-white'}`}
                                             placeholder=" "
                                         />
                                         <label
@@ -209,7 +209,7 @@ export default function Contact() {
                                             id="inquiry"
                                             rows={4}
                                             {...register("inquiry")}
-                                            className={`block w-full pb-3 text-lg bg-transparent border-0 border-b-2 appearance-none text-white focus:outline-none focus:ring-0 peer transition-colors duration-300 resize-none ${errors.inquiry ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-white'}`}
+                                            className={`block w-full pb-3 text-lg bg-transparent border-0 border-b-2 appearance-none text-white focus:outline-none focus:ring-0 peer transition-colors duration-300 resize-none ${errors.inquiry ? 'border-red-500/50 focus:border-red-500' : 'border-white/5 focus:border-white'}`}
                                             placeholder=" "
                                         />
                                         <label
@@ -242,7 +242,7 @@ export default function Contact() {
                                                 whileTap={{ scale: 0.98 }}
                                                 disabled={isSubmitting || (!isValid && isDirty)}
                                                 type="submit"
-                                                className={`relative w-full md:w-auto px-10 overflow-hidden rounded-full h-14 flex items-center justify-center font-bold text-lg transition-all duration-500 ${isSubmitting ? '' : 'shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:-translate-y-1'} ${(!isValid && isDirty) ? "bg-white/5 text-zinc-500 cursor-not-allowed border-white/10" : "bg-white text-obsidian hover:bg-white border border-transparent"}`}
+                                                className={`relative w-full md:w-auto px-10 overflow-hidden rounded-full h-14 flex items-center justify-center font-bold text-lg transition-all duration-500 ${isSubmitting ? '' : 'shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:-translate-y-1'} ${(!isValid && isDirty) ? "bg-white/5 text-zinc-500 cursor-not-allowed border-white/5" : "bg-white text-obsidian hover:bg-white border border-transparent"}`}
                                             >
                                                 <AnimatePresence mode="wait">
                                                     {isSubmitting ? (
@@ -336,7 +336,7 @@ export default function Contact() {
                                     <MagneticWrapper strength={0.2}>
                                         <button
                                             onClick={handleReturnHome}
-                                            className="flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group"
+                                            className="flex items-center gap-3 px-8 py-4 rounded-full border border-white/5 bg-white/5 hover:bg-white/10 text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group"
                                         >
                                             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
                                             <span className="font-bold tracking-wide">Return to Home</span>

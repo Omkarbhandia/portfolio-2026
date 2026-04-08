@@ -7,6 +7,12 @@ import MagneticWrapper from "@/components/ui/MagneticWrapper";
 export default function Projects() {
     const projects = [
         {
+            title: "Vitto",
+            description: "A lightweight, full-stack decision engine designed to simulate automated credit evaluation for MSMEs. It processes business profiles to instantly generate credit decisions, scores, and reason codes.",
+            techStack: ["FULL-STACK", "FINTECH", "VERCEL"],
+            demoUrl: "https://msme-lending-system.vercel.app/",
+        },
+        {
             title: "Hive Homes",
             description: "A full-scale Real Estate ecosystem built with the MERN stack. Features Redux for state management and Tailwind CSS for a fluid, responsive UI.",
             techStack: ["MERN", "REDUX", "TAILWIND"],
@@ -86,7 +92,7 @@ export default function Projects() {
                         key={index}
                         variants={cardVariants}
                         whileHover={{ y: -5 }}
-                        className="group flex flex-col p-8 rounded-2xl safari-glass border border-white/10 hover:bg-white/10 hover:border-white/30 transition-all duration-300 relative z-10 isolate h-full bg-white/5 data-[hover=true]:backdrop-blur-md"
+                        className="group flex flex-col p-8 rounded-2xl safari-glass border border-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-300 relative z-10 isolate h-full bg-white/5 data-[hover=true]:backdrop-blur-md"
                     >
                         {/* Top: Index Header */}
                         <div className="flex items-start justify-between mb-8 z-20">

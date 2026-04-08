@@ -33,7 +33,7 @@ function DockItem({ icon, label, onClick, mouseX, isActive, href, download }: Do
                     initial={{ opacity: 0, y: 10, scale: 0.8 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 2, scale: 0.8 }}
-                    className="absolute -top-12 px-3 py-1.5 bg-industrial-grey/80 backdrop-blur-md text-pure-white text-xs font-mono rounded-md whitespace-nowrap border border-white/10 pointer-events-none"
+                    className="absolute -top-12 px-3 py-1.5 bg-industrial-grey/80 backdrop-blur-md text-pure-white text-xs font-mono rounded-md whitespace-nowrap border border-white/5 pointer-events-none"
                 >
                     {label}
                 </motion.div>
@@ -49,7 +49,7 @@ function DockItem({ icon, label, onClick, mouseX, isActive, href, download }: Do
                     style={{ width, willChange: "transform" }}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className={`aspect-square rounded-2xl flex items-center justify-center cursor-pointer transition-colors border shadow-2xl safari-glass ${isActive ? "bg-white/20 border-white/40" : "bg-white/5 border-white/10 hover:bg-white/10"}`}
+                    className={`aspect-square rounded-2xl flex items-center justify-center cursor-pointer transition-colors border shadow-2xl safari-glass ${isActive ? "bg-white/20 border-white/40" : "bg-white/5 border-white/5 hover:bg-white/10"}`}
                 >
                     <div className={`${isActive ? "text-white" : "text-white/70 group-hover:text-white"}`}>
                         {icon}
@@ -63,7 +63,7 @@ function DockItem({ icon, label, onClick, mouseX, isActive, href, download }: Do
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                     onClick={onClick}
-                    className={`aspect-square rounded-2xl flex items-center justify-center cursor-pointer transition-colors border shadow-2xl safari-glass ${isActive ? "bg-white/20 border-white/40" : "bg-white/5 border-white/10 hover:bg-white/10"}`}
+                    className={`aspect-square rounded-2xl flex items-center justify-center cursor-pointer transition-colors border shadow-2xl safari-glass ${isActive ? "bg-white/20 border-white/40" : "bg-white/5 border-white/5 hover:bg-white/10"}`}
                 >
                     <div className={`${isActive ? "text-white" : "text-white/70 group-hover:text-white"}`}>
                         {icon}
@@ -118,7 +118,7 @@ export default function GlassDock({
             <div
                 onMouseMove={(e) => mouseX.set(e.pageX)}
                 onMouseLeave={() => mouseX.set(Infinity)}
-                className="flex items-end gap-4 h-24 px-4 pb-3 rounded-3xl border border-white/10 bg-obsidian/40 safari-glass shadow-2xl"
+                className="flex items-end gap-4 h-24 px-4 pb-3 rounded-3xl border border-white/5 bg-obsidian/40 safari-glass shadow-2xl"
             >
                 <DockItem
                     mouseX={mouseX}
