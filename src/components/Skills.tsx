@@ -11,6 +11,7 @@ export default function About() {
             icon: <Code2 size={16} />,
             items: [
                 { name: "React.js", tags: ["Hooks", "Context API", "Framer Motion"] },
+                { name: "Angular", tags: ["Standalone Components", "RxJS", "Services"] },
                 { name: "Next.js", tags: ["SSR", "SSG", "App Router"] },
                 { name: "TypeScript", tags: ["Interfaces", "Generics", "Type Safety"] },
                 { name: "Tailwind CSS", tags: ["Utility-first", "Responsive", "Plugins"] },
