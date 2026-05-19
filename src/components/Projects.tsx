@@ -7,6 +7,12 @@ import MagneticWrapper from "@/components/ui/MagneticWrapper";
 export default function Projects() {
     const projects = [
         {
+            title: "GitHub Repo Explorer",
+            description: "A responsive SPA to search and explore GitHub repositories via REST API. Features reactive search with RxJS to handle async data and prevent redundant API calls.",
+            techStack: ["ANGULAR 17", "RXJS", "TAILWIND CSS"],
+            demoUrl: "https://github-explorer-omkarbhandia.vercel.app/",
+        },
+        {
             title: "Vitto",
             description: "A lightweight, full-stack decision engine designed to simulate automated credit evaluation for MSMEs. It processes business profiles to instantly generate credit decisions, scores, and reason codes.",
             techStack: ["FULL-STACK", "FINTECH", "VERCEL"],
