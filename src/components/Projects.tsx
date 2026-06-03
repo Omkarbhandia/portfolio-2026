@@ -7,6 +7,12 @@ import MagneticWrapper from "@/components/ui/MagneticWrapper";
 export default function Projects() {
     const projects = [
         {
+            title: "DevBoard",
+            description: "A full-stack developer dashboard integrating GitHub REST API and LeetCode GraphQL API to track commits, repos, problems solved and streaks in real time.",
+            techStack: ["NEXT.JS", "TYPESCRIPT", "MONGODB"],
+            demoUrl: "https://mydevboard.vercel.app/",
+        },
+        {
             title: "GitHub Repo Explorer",
             description: "A responsive SPA to search and explore GitHub repositories via REST API. Features reactive search with RxJS to handle async data and prevent redundant API calls.",
             techStack: ["ANGULAR 17", "RXJS", "TAILWIND CSS"],
