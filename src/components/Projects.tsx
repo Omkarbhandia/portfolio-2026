@@ -10,7 +10,7 @@ export default function Projects() {
             title: "CodeReviewer",
             description: "An AI-powered code analysis platform utilizing a microservice architecture. Integrates a React frontend, Node.js API gateway, and Python FastAPI service with Google Gemini AI for instant, intelligent code reviews.",
             techStack: ["REACT", "NODE.JS", "FASTAPI", "GEMINI AI", "MONGODB"],
-            demoUrl: "#",
+            demoUrl: "https://code-reviewer-omkar.vercel.app/",
         },
         {
             title: "DevBoard",
