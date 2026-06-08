@@ -7,6 +7,12 @@ import MagneticWrapper from "@/components/ui/MagneticWrapper";
 export default function Projects() {
     const projects = [
         {
+            title: "CodeReviewer",
+            description: "An AI-powered code analysis platform utilizing a microservice architecture. Integrates a React frontend, Node.js API gateway, and Python FastAPI service with Google Gemini AI for instant, intelligent code reviews.",
+            techStack: ["REACT", "NODE.JS", "FASTAPI", "GEMINI AI", "MONGODB"],
+            demoUrl: "#",
+        },
+        {
             title: "DevBoard",
             description: "A full-stack developer dashboard integrating GitHub REST API and LeetCode GraphQL API to track commits, repos, problems solved and streaks in real time.",
             techStack: ["NEXT.JS", "TYPESCRIPT", "MONGODB"],
