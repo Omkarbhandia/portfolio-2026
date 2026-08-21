@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0D0D0D",
+  themeColor: "#F5F8FA",
 };
 
 import TabIdentity from "@/components/ui/TabIdentity";
@@ -62,13 +62,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth cursor-default">
+    <html lang="en" className="scroll-smooth cursor-default">
       <body
-        className={`${inter.variable} ${interTight.variable} ${jetBrainsMono.variable} antialiased overflow-x-hidden bg-[#030303] text-white`}
+        className={`${inter.variable} ${interTight.variable} ${jetBrainsMono.variable} antialiased overflow-x-hidden`}
         style={{ isolation: "isolate" }}
       >
         <TabIdentity />
-        <BackgroundMesh />
         <CustomCursor />
         {children}
       </body>

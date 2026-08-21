@@ -1,173 +1,152 @@
 "use client";
 
-import { motion } from "framer-motion";
-import MagneticWrapper from "@/components/ui/MagneticWrapper";
-import { Server, Database, Code2, Wrench, Mountain, Utensils, Headphones, Users } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { Server, Database, Code2, Wrench, Mountain, Utensils, Headphones, Terminal } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
 
-export default function About() {
-    const digitalSkills = [
-        {
-            category: "FRONTEND",
-            icon: <Code2 size={16} />,
-            items: [
-                { name: "React.js", tags: ["Hooks", "Context API", "Framer Motion"] },
-                { name: "Angular", tags: ["Standalone Components", "RxJS", "Services"] },
-                { name: "Next.js", tags: ["SSR", "SSG", "App Router"] },
-                { name: "TypeScript", tags: ["Interfaces", "Generics", "Type Safety"] },
-                { name: "Tailwind CSS", tags: ["Utility-first", "Responsive", "Plugins"] },
-                { name: "Redux", tags: ["State Management", "Thunk", "Toolkit"] }
-            ]
-        },
-        {
-            category: "BACKEND",
-            icon: <Server size={16} />,
-            items: [
-                { name: "Node.js", tags: ["REST APIs", "Middleware", "JWT"] },
-                { name: "Express.js", tags: ["Routing", "Controllers", "Auth"] },
-                { name: "MongoDB", tags: ["Aggregation", "Mongoose", "NoSQL"] },
-                { name: "SQL", tags: ["PostgreSQL", "Relational", "Joins"] },
-                { name: "PHP", tags: ["Legacy", "Backend", "Scripts"] }
-            ]
-        },
-        {
-            category: "TOOLS & DEVOPS",
-            icon: <Wrench size={16} />,
-            items: [
-                { name: "Git & GitHub", tags: ["Version Control", "CI/CD Actions", "PRs"] },
-                { name: "REST APIs", tags: ["Endpoints", "Axios", "Fetch"] },
-                { name: "Vite", tags: ["Build Tool", "HMR", "Rollup"] },
-                { name: "Vercel", tags: ["Deployment", "Edge", "Serverless"] }
-            ]
+const TypewriterTerminal = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const [typed, setTyped] = useState("");
+    const command = "> fetch_stack --omkar";
+    const [showResults, setShowResults] = useState(false);
+
+    useEffect(() => {
+        if (isInView) {
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                if (i <= command.length) {
+                    setTyped(command.slice(0, i));
+                    i++;
+                } else {
+                    clearInterval(typingInterval);
+                    setTimeout(() => setShowResults(true), 400);
+                }
+            }, 80);
+            return () => clearInterval(typingInterval);
         }
+    }, [isInView]);
+
+    const digitalSkills = [
+        { category: "FRONTEND", tech: "React.js, Next.js, Angular, TypeScript, JavaScript(ES6+), Redux, Tailwind" },
+        { category: "BACKEND", tech: "Node.js, Express, PHP, RestAPI" },
+        { category: "DATABASE", tech: "MongoDB, PostgreSQL, SQL" },
+        { category: "DEVOPS", tech: "Git, Github, Vercel, Docker, CI/CD" }
     ];
 
+    return (
+        <div ref={ref} className="col-span-1 md:col-span-2 lg:col-span-2 bg-white rounded-3xl p-6 md:p-8 shadow-[0_10px_40px_-15px_rgba(30,58,138,0.08)] border border-blue-900/5 flex flex-col relative overflow-hidden">
+            {/* Terminal Header */}
+            <div className="flex items-center gap-2 mb-6 border-b border-gray-100 pb-4">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-amber-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <span className="ml-2 font-mono text-xs text-gray-400 flex items-center gap-2">
+                    <Terminal size={14} /> guest@omkar-portfolio ~
+                </span>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="font-mono text-sm md:text-base flex flex-col gap-4">
+                <div className="text-gray-800">
+                    <span className="text-luxury-light font-bold">~</span> $ {typed}
+                    {!showResults && <span className="animate-pulse bg-gray-400 w-2 h-4 inline-block ml-1 align-middle" />}
+                </div>
+                
+                {showResults && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex flex-col gap-3 mt-2"
+                    >
+                        {digitalSkills.map((skill, idx) => (
+                            <motion.div 
+                                key={idx}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: idx * 0.15 }}
+                                className="flex flex-col sm:flex-row gap-1 sm:gap-4"
+                            >
+                                <span className="text-luxury-light font-semibold w-24">[{skill.category}]</span>
+                                <span className="text-gray-600">{skill.tech}</span>
+                            </motion.div>
+                        ))}
+                        <div className="mt-4 text-green-600 font-bold">
+                            ✔ Stack loaded successfully.
+                        </div>
+                    </motion.div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default function About() {
     const analogTraits = [
         {
             title: "TREKKING",
-            icon: <Mountain size={20} />,
+            icon: <Mountain size={24} className="text-luxury-blue" />,
             desc: "Seeking perspective from the peaks."
         },
         {
             title: "EXPLORING",
-            icon: <Utensils size={20} />,
+            icon: <Utensils size={24} className="text-luxury-blue" />,
             desc: "Discovering regional flavors and hidden paths."
         },
         {
             title: "RHYTHM",
-            icon: <Headphones size={20} />,
+            icon: <Headphones size={24} className="text-luxury-blue" />,
             desc: "Deep melodic beats for deep focus."
         }
     ];
 
     return (
-        <section id="about" className="relative z-10 w-full min-h-screen grid grid-cols-1 md:grid-cols-2">
+        <section id="about" className="relative z-10 w-full py-20 px-6 md:px-12 bg-ice-blue">
+            <div className="max-w-6xl mx-auto flex flex-col gap-16">
+                
+                {/* Header */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col gap-2"
+                >
+                    <span className="font-mono text-sm tracking-widest text-luxury-light uppercase">01 // The Engine</span>
+                    <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 tracking-tight">
+                        Digital DNA & <br />Analog Soul.
+                    </h2>
+                </motion.div>
 
-            {/* LEFT SIDE: DIGITAL DNA */}
-            <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="bg-obsidian w-full h-full flex items-center justify-end p-8 md:p-16 lg:p-24 relative overflow-hidden"
-            >
-                {/* Subtle Glow Background */}
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(99,102,241,0.05)_0%,transparent_50%)] pointer-events-none" />
+                {/* Bento Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    {/* Terminal Card (Spans 2 cols on lg) */}
+                    <TypewriterTerminal />
 
-                <div className="w-full max-w-xl text-left relative z-10 flex flex-col gap-12">
-                    {/* Header */}
-                    <div>
-                        <span className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4 block">
-                            01 // DIGITAL DNA
-                        </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-pure-white leading-tight">
-                            Full-Stack <br />
-                            <span className="text-electric-indigo italic">Architecture</span>
-                        </h2>
-                    </div>
-
-                    {/* Technical Terminal Grid */}
-                    <div className="flex flex-col gap-8">
-                        {digitalSkills.map((block, idx) => (
-                            <div key={idx} className="flex flex-col gap-4">
-                                <div className="flex items-center gap-3 text-white/40 border-b border-white/5 pb-2">
-                                    {block.icon}
-                                    <h3 className="font-mono text-sm tracking-widest font-bold uppercase">{block.category}</h3>
-                                </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {block.items.map((skill, i) => (
-                                        <div key={i} className="group relative w-full cursor-default overflow-hidden border border-white/5 bg-white/5 rounded-lg p-3 hover:border-white/20 transition-all duration-300">
-                                            <div className="flex flex-col gap-2 relative z-10">
-                                                <span className="font-sans text-sm font-medium text-white/80 group-hover:text-white transition-colors">{skill.name}</span>
-                                                <div className="flex flex-wrap gap-1.5 opacity-0 h-0 overflow-hidden group-hover:opacity-100 group-hover:h-auto transition-all duration-300">
-                                                    {skill.tags?.map((tag, j) => (
-                                                        <span key={j} className="font-mono text-[10px] uppercase text-white/50 bg-white/10 px-1.5 py-0.5 rounded-sm">
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </motion.div>
-
-            {/* STRETCHING VERTICAL DIVIDER */}
-            <motion.div
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 1, ease: "anticipate" }}
-                className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 origin-top z-30"
-            />
-
-            {/* RIGHT SIDE: ANALOG SOUL */}
-            <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full h-full flex items-center justify-start p-8 md:p-16 lg:p-24 relative"
-            >
-                {/* Optional Glass panel to ensure text readability over bright city lights, kept subtle */}
-                <div className="absolute inset-4 md:inset-8 lg:inset-12 bg-obsidian/30 backdrop-blur-[10px] rounded-3xl border border-white/5 z-0 pointer-events-none" />
-
-                <div className="w-full max-w-xl text-left relative z-10 flex flex-col gap-12 p-6">
-                    {/* Header */}
-                    <div>
-                        <span className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-4 block">
-                            02 // ANALOG SOUL
-                        </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-pure-white leading-tight">
-                            The Human <br />
-                            <span className="text-white/60 italic font-serif">Element</span>
-                        </h2>
-                    </div>
-
-                    {/* Hobbies Narrative List */}
-                    <div className="flex flex-col gap-8 mt-4">
+                    {/* Analog Cards */}
+                    <div className="col-span-1 flex flex-col gap-6">
                         {analogTraits.map((trait, idx) => (
-                            <MagneticWrapper key={idx} strength={0.1}>
-                                <div className="group flex items-start gap-6 opacity-80 hover:opacity-100 transition-opacity cursor-default">
-                                    <div className="mt-1 p-3 rounded-xl bg-white/5 border border-white/5 text-white group-hover:bg-white group-hover:text-obsidian transition-colors shadow-lg">
-                                        {trait.icon}
-                                    </div>
-                                    <div className="flex flex-col gap-2">
-                                        <h3 className="font-mono text-sm tracking-widest font-bold uppercase text-white">{trait.title}</h3>
-                                        <p className="font-sans text-lg text-white/60 group-hover:text-white/90 transition-colors leading-relaxed">
-                                            {trait.desc}
-                                        </p>
-                                    </div>
+                            <motion.div 
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + (idx * 0.1) }}
+                                className="bg-white rounded-3xl p-6 shadow-[0_10px_40px_-15px_rgba(30,58,138,0.05)] border border-blue-900/5 flex items-start gap-4 hover:shadow-[0_10px_40px_-15px_rgba(30,58,138,0.12)] transition-shadow duration-300"
+                            >
+                                <div className="p-3 bg-blue-50 rounded-2xl">
+                                    {trait.icon}
                                 </div>
-                            </MagneticWrapper>
+                                <div className="flex flex-col gap-1">
+                                    <h3 className="font-sans font-bold text-gray-900 text-sm tracking-wide">{trait.title}</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed">{trait.desc}</p>
+                                </div>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
-            </motion.div>
 
+                </div>
+            </div>
         </section>
     );
 }

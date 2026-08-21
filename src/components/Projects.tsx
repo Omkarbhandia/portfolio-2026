@@ -71,92 +71,99 @@ export default function Projects() {
     };
 
     const cardVariants = {
-        hidden: { opacity: 0, scale: 0.95, y: 30 },
-        visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
     };
 
     return (
-        <section id="projects" className="py-24 relative overflow-hidden z-10 w-full max-w-7xl mx-auto px-6 md:px-12 mt-10">
-            <div className="mb-16 flex flex-col gap-4">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-black text-white tracking-widest uppercase mb-4"
-                >
-                    Featured <span className="text-white">Work.</span>
-                </motion.h2>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="text-zinc-500 text-base max-w-xl font-medium"
-                >
-                    A curated selection of my recent projects showcasing full-stack development and API integrations.
-                </motion.p>
-            </div>
-
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8"
-                style={{ WebkitTransform: "translate3d(0,0,0)", transform: "translate3d(0,0,0)" }}
-            >
-                {projects.map((project, index) => (
+        <section id="projects" className="py-24 relative overflow-hidden z-10 w-full bg-ice-blue">
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
+                <div className="mb-16 flex flex-col gap-4">
                     <motion.div
-                        key={index}
-                        variants={cardVariants}
-                        whileHover={{ y: -5 }}
-                        className="group flex flex-col p-8 rounded-2xl safari-glass border border-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-300 relative z-10 isolate h-full bg-white/5 data-[hover=true]:backdrop-blur-md"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                     >
-                        {/* Top: Index Header */}
-                        <div className="flex items-start justify-between mb-8 z-20">
-                            <span className="font-mono text-sm text-zinc-600 font-bold tracking-widest group-hover:text-zinc-400 transition-colors">
-                                [ {String(index + 1).padStart(2, '0')} ]
-                            </span>
-                        </div>
-
-                        {/* Middle: Content */}
-                        <div className="flex-grow flex flex-col justify-start z-20">
-                            <h3 className="text-2xl font-bold text-white mb-3 transition-colors">
-                                {project.title}
-                            </h3>
-                            <p className="text-sm text-zinc-400 mb-6 leading-relaxed max-w-md">
-                                {project.description}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 mb-8">
-                                {project.techStack.map((tech, i) => (
-                                    <span
-                                        key={i}
-                                        className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 bg-black/40 px-2 py-1 rounded border border-white/5 group-hover:text-white group-hover:border-white/20 transition-colors"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Bottom: Anchor Link */}
-                        <div className="mt-auto pt-6 border-t border-white/5 z-20 flex justify-end">
-                            <MagneticWrapper strength={0.2}>
-                                <a
-                                    href={project.demoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 text-zinc-400 hover:text-white uppercase font-bold text-xs tracking-widest transition-colors group/link"
-                                >
-                                    <span>View Live Project</span>
-                                    <ArrowUpRight size={16} className="group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
-                                </a>
-                            </MagneticWrapper>
-                        </div>
+                        <span className="font-mono text-sm tracking-widest text-luxury-light uppercase block mb-2">02 // The Proof</span>
+                        <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 tracking-tight">
+                            Featured Work.
+                        </h2>
                     </motion.div>
-                ))}
-            </motion.div>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-gray-500 text-base max-w-xl font-medium"
+                    >
+                        A curated selection of my recent projects showcasing full-stack development and API integrations.
+                    </motion.p>
+                </div>
+
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8"
+                >
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={index}
+                            variants={cardVariants}
+                            whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px 0px rgba(30,58,138,1)" }}
+                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                            className="group flex flex-col p-8 rounded-2xl bg-white border-2 border-luxury-blue shadow-[0px_0px_0px_0px_rgba(30,58,138,1)] transition-all duration-300 relative z-10 h-full overflow-hidden"
+                        >
+                            {/* Accent Bar */}
+                            <div className="absolute top-0 left-0 w-full h-2 bg-luxury-blue" />
+
+                            {/* Top: Index Header */}
+                            <div className="flex items-start justify-between mb-8 z-20 mt-2">
+                                <span className="font-mono text-sm text-gray-400 font-bold tracking-widest transition-colors">
+                                    [ {String(index + 1).padStart(2, '0')} ]
+                                </span>
+                            </div>
+
+                            {/* Middle: Content */}
+                            <div className="flex-grow flex flex-col justify-start z-20">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3 transition-colors">
+                                    {project.title}
+                                </h3>
+                                <p className="text-sm text-gray-600 mb-6 leading-relaxed max-w-md font-medium">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 mb-8">
+                                    {project.techStack.map((tech, i) => (
+                                        <span
+                                            key={i}
+                                            className="text-[10px] font-mono font-bold tracking-widest uppercase text-white bg-luxury-blue px-2 py-1 transition-colors"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Bottom: Anchor Link */}
+                            <div className="mt-auto pt-6 border-t-2 border-gray-100 z-20 flex justify-end">
+                                <MagneticWrapper strength={0.3}>
+                                    <a
+                                        href={project.demoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-gray-900 hover:text-luxury-light uppercase font-bold text-xs tracking-widest transition-colors group/link bg-transparent p-2 -mr-2"
+                                    >
+                                        <span>View Live Project</span>
+                                        <ArrowUpRight size={16} className="group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
+                                    </a>
+                                </MagneticWrapper>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
         </section>
     );
 }

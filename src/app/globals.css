@@ -7,15 +7,16 @@
   --font-display: var(--font-inter-tight);
   --font-mono: var(--font-mono);
 
-  /* Glass Dock Industrial Theme */
-  --color-obsidian: #0D0D0D;
-  --color-industrial-grey: #404040;
+  /* Luxury Blue Theme */
+  --color-luxury-blue: #1E3A8A;
+  --color-luxury-light: #3B82F6;
+  --color-ice-blue: #F5F8FA;
   --color-pure-white: #FFFFFF;
 }
 
 :root {
-  --background: #0D0D0D;
-  --foreground: #FFFFFF;
+  --background: #F5F8FA;
+  --foreground: #0F172A;
 }
 
 html {
@@ -41,7 +42,7 @@ h6 {
 }
 
 ::selection {
-  background-color: var(--color-industrial-grey);
+  background-color: var(--color-luxury-light);
   color: #fff;
 }
 
@@ -55,21 +56,32 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-industrial-grey);
+  background: #CBD5E1;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: #94A3B8;
 }
 
-
-
-/* Safari-specific Glass Utility */
 @layer utilities {
   .safari-glass {
-    backdrop-filter: blur(12px) saturate(150%);
-    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
     will-change: transform, opacity;
+  }
+  
+  .frosted-grain {
+    position: relative;
+  }
+  
+  .frosted-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+    z-index: 10;
+    mix-blend-mode: overlay;
   }
 }
