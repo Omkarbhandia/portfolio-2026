@@ -7,6 +7,12 @@ import MagneticWrapper from "@/components/ui/MagneticWrapper";
 export default function Projects() {
     const projects = [
         {
+            title: "Lucky Gawle — Video Editor Portfolio",
+            description: "A premium portfolio website designed and developed for a professional video editor client. Features cinematic aesthetics, smooth animations, and a showcase-first layout tailored to highlight creative work.",
+            techStack: ["NEXT.JS", "REACT", "TAILWIND CSS", "FRAMER MOTION"],
+            demoUrl: "https://lucky-gawle.vercel.app/",
+        },
+        {
             title: "CodeReviewer",
             description: "An AI-powered code analysis platform utilizing a microservice architecture. Integrates a React frontend, Node.js API gateway, and Python FastAPI service with Google Gemini AI for instant, intelligent code reviews.",
             techStack: ["REACT", "NODE.JS", "FASTAPI", "GEMINI AI", "MONGODB"],
